@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "https://confused-loraine-nofil-apps-6f553274.koyeb.app";
 
 /**
  * Sends a message to a group.
