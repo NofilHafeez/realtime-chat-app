@@ -9,6 +9,7 @@ const groupSchema = new mongoose.Schema({
   }, 
   messages: [{type: mongoose.Schema.Types.ObjectId, ref: "Message"}],
   members: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
+  isMember: {type: Boolean, default: false},
   createdAt: { type: Date, default: Date.now },
 });
 

@@ -1,0 +1,14 @@
+@import "tailwindcss";
+* {
+    font-family:Helvetica, sans-serif;
+}
+.container.blur {
+    filter: blur(2px);
+    pointer-events: none; /* Prevent interaction while loading */
+}
+
+html, body {
+    background-color: transparent !important;
+    margin: 0;
+    padding: 0;
+  }

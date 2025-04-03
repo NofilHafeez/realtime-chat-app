@@ -39,6 +39,12 @@ const userSchema = new mongoose.Schema(
         ref: 'Folder',
       }
     ],
+    groups: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group',
+      }
+    ],
   },
   { timestamps: true }
 );
