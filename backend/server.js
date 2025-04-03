@@ -14,14 +14,12 @@ const app = express();
 const http = require("http");
 const socketIo = require("socket.io");
 
-const __dirname = path.resolve();
+
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "http://localhost:5173", // Allow frontend
-        methods: ["GET", "POST"], // Allowed methods
-        credentials: true // Allow authentication headers
-    }
+      origin: "*", 
+    },
 });
 
 
