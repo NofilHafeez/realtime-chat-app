@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Trash2, Users, Pen, Check, UserRoundMinus, LogOut, X  } from 'lucide-react';
 
 
-const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "https://confused-loraine-nofil-apps-6f553274.koyeb.app";
+const API_URL = "/api";
 
 
 const ChatHeader = ({

@@ -8,7 +8,7 @@ const LoginPage = () => {
   const { setUser, fetchUser } = useContext(AuthContext); // ✅ Use AuthContext
   const [message, setMessage] = useState(null);
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "https://confused-loraine-nofil-apps-6f553274.koyeb.app";
+  const API_URL = "/api";
 
 
 

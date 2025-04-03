@@ -11,7 +11,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   
-  const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "https://confused-loraine-nofil-apps-6f553274.koyeb.app";
+  const API_URL = "/api";
+
   
   const handleLogout = async () => {
     try {
