@@ -10,6 +10,24 @@
     "type": "git",
     "url": "git+https://github.com/NofilHafeez/realtime-chat-app.git"
   },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^1.41.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.11.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "realtime-chat-app": "file:..",
+    "socket.io": "^4.8.1"
+  },
+  "engines": {
+  "node": "18.x",
+  "npm": "9.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,3 +38,4 @@
   "homepage": "https://github.com/NofilHafeez/realtime-chat-app#readme",
   "description": ""
 }
+
