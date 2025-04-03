@@ -1,5 +1,4 @@
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config(); 
 const express = require("express");
 const cors = require("cors");
 const connectDB = require('./config/db');
@@ -84,10 +83,18 @@ if (process.env.NODE_ENV === "production") {
     })
 }
 
-connectDB();
+const startServer = async () => {
+    try {
+        await connectDB(); // ✅ Ensure DB is connected before starting server
+        server.listen(process.env.PORT || 3000, () => {
+            console.log(`Server is running on port ${process.env.PORT || 3000}`);
+        });
+    } catch (error) {
+        console.error("Database connection failed:", error);
+        process.exit(1); // Exit process if DB fails
+    }
+};
 
-server.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
+startServer();
 
 module.exports = { app, server, io };
