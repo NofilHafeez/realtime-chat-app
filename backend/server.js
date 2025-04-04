@@ -17,8 +17,12 @@ const socketIo = require("socket.io");
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-      origin: "*", 
-    },
+      origin: [
+        "http://localhost:5173",
+        "https://confused-loraine-nofil-apps-6f553274.koyeb.app"
+      ],
+      methods: ["GET", "POST"]
+    }
 });
 
 
@@ -26,9 +30,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({ 
-    origin: "http://localhost:5173", // Your frontend URL
-    credentials: true // Allow cookies
+    origin: [
+        "http://localhost:5173",
+        "https://confused-loraine-nofil-apps-6f553274.koyeb.app"
+    ],
+    credentials: true
 }));
+
 
 io.on("connection", (socket) => {
     console.log("A user connected:", socket.id);
