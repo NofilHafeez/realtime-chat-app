@@ -12,9 +12,9 @@ const AppLayout = () => {
 
   return (
     <div className="bg-black bg-opacity-50 backdrop-blur-md">
-      {location.pathname !== "/register-page" && location.pathname !== "/login-page" && <Header />}
+      {location.pathname !== "/register-page" && location.pathname !== "/" && <Header />}
       <Routes>
-        <Route path="/login-page" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/register-page" element={<RegisterPage />} />
         <Route path="/chat-page" element={<Chat />} />
         <Route path="/my-folders" element={<Folder />} />
