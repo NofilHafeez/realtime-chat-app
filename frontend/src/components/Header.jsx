@@ -19,7 +19,7 @@ const Header = () => {
     try {
       await axios.post(`${API_URL}/api/auth/logout`, {}, { withCredentials: true });
       setUser(null);
-      navigate("/login-page"); // ✅ Fixed Path
+      navigate("/"); // ✅ Fixed Path
     } catch (error) {
       console.error("Error Logging Out:", error);
     }
