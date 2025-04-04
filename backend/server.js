@@ -19,7 +19,7 @@ const io = socketIo(server, {
     cors: {
       origin: [
         "http://localhost:5173",
-        "https://realtime-chat-app-frontend1.vercel.app/"
+        "https://realtime-chat-app-frontend1.vercel.app"
       ],
       methods: ["GET", "POST"]
     }
@@ -29,22 +29,21 @@ const io = socketIo(server, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors({ 
-    origin: [
-        "http://localhost:5173",
-        "https://realtime-chat-app-frontend1.vercel.app/"
-    ],
-    credentials: true,  // ✅ Allow credentials (cookies, authorization headers)
-    methods: ["GET", "POST", "PUT", "DELETE"], // ✅ Allow all necessary HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"] // ✅ Allow required headers
+app.use(cors({
+    origin: "https://realtime-chat-app-frontend1.vercel.app", // ✅ Use a single origin
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
-app.use((req, res, next) => {
+
+app.options("*", (req, res) => {
     res.header("Access-Control-Allow-Origin", "https://realtime-chat-app-frontend1.vercel.app");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    next();
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.sendStatus(204); // ✅ No JSON, just status 204 (No Content)
 });
+
 
 
 io.on("connection", (socket) => {
@@ -78,8 +77,8 @@ io.on("connection", (socket) => {
         // Broadcast the group creation to all clients
         io.emit("G-created", newGroup);
     });
-    
-
+  
+  
     // When a user disconnects
     socket.on("disconnect", () => {
         console.log("User disconnected:", socket.id);

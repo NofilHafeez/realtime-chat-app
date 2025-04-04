@@ -31,10 +31,9 @@ module.exports.registerUser = async (req, res) => {
         // Set secure cookie with token
         res.cookie('token', token, {
             httpOnly: true,
-            sameSite: "Lax", // Prevents CSRF issues
+            secure: true,
+            sameSite: 'None', 
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 Days Expiry
-            secure: false,  // Secure in production
-             // Required for cross-origin cookies
         });
 
         // Send response
