@@ -34,8 +34,17 @@ app.use(cors({
         "http://localhost:5173",
         "https://realtime-chat-app-frontend1.vercel.app/"
     ],
-    credentials: true
+    credentials: true,  // ✅ Allow credentials (cookies, authorization headers)
+    methods: ["GET", "POST", "PUT", "DELETE"], // ✅ Allow all necessary HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"] // ✅ Allow required headers
 }));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://realtime-chat-app-frontend1.vercel.app");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    next();
+});
 
 
 io.on("connection", (socket) => {
