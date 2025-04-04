@@ -24,10 +24,7 @@
     "realtime-chat-app": "file:..",
     "socket.io": "^4.8.1"
   },
-  "engines": {
-  "node": "18.x",
-  "npm": "9.x"
-  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
