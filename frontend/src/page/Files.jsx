@@ -2,9 +2,9 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Trash2, Plus, ArrowLeft } from "lucide-react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "https://confused-loraine-nofil-apps-6f553274.koyeb.app";
-
-
 
 
 const Files = () => {
@@ -90,7 +90,10 @@ const Files = () => {
 
   return (
     <div className="w-full min-h-screen px-5 py-20 sm:px-20 bg-zinc-900">
-      <a href="/my-folders" className="text-blue-500"><ArrowLeft size={17} className="inline-block mr-2 " />See Folders</a>
+      <Link to="/my-folders" className="text-blue-500">
+          <ArrowLeft size={17} className="inline-block mr-2 " />
+          See Folders
+       </Link>
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <h1 className="text-xl font-semibold text-white">My Files</h1>

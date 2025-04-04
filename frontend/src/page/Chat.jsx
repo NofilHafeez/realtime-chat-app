@@ -10,6 +10,7 @@ import GroupList from '../components/GroupList';
 import ChatHeader from '../components/ChatHeader';
 import ChatMessages from '../components/ChatMessages';
 import ChatInput from '../components/ChatInput';
+import { Link } from 'react-router-dom';
 
 const Chat = () => {
     const [text, setText] = useState("");
@@ -125,7 +126,10 @@ const Chat = () => {
     return (
         <>
         <div className='w-full flex justify-end px-28 relative top-10 sm:justify-end sm:px-20 sm:relative sm:top-18'>
-             <a className='text-blue-500 ' href="/my-folders"><ArrowRight size={17} className='inline-block mr-2'/>My Folders</a>
+        <Link className='text-blue-500' to="/my-folders">
+            <ArrowRight size={17} className='inline-block mr-2' />
+            My Folders
+        </Link>
         </div>
         <div className='bg-black sm:p-20 flex min-h-screen w-full'>
             {/* Mobile toggle button for groups */}
