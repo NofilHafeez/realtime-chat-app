@@ -83,15 +83,6 @@ app.use("/api/folder", folderRouter);
 app.use("/api/file", fileRouter);
 app.use("/api/message", messageRouter);
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
-    });
-}
-
-
 const startServer = async () => {
     try {
         await connectDB(); // ✅ Ensure DB is connected before starting server
