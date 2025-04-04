@@ -19,7 +19,7 @@ const io = socketIo(server, {
     cors: {
       origin: [
         "http://localhost:5173",
-        "https://confused-loraine-nofil-apps-6f553274.koyeb.app"
+        "https://realtime-chat-app-frontend1.vercel.app/"
       ],
       methods: ["GET", "POST"]
     }
@@ -32,7 +32,7 @@ app.use(cookieParser());
 app.use(cors({ 
     origin: [
         "http://localhost:5173",
-        "https://confused-loraine-nofil-apps-6f553274.koyeb.app"
+        "https://realtime-chat-app-frontend1.vercel.app/"
     ],
     credentials: true
 }));
