@@ -77,6 +77,8 @@ io.on("connection", (socket) => {
     });
 });
 
+router.get('/', (req, res) => res.send('routes working'));
+
 app.use("/api/auth", authRouter);
 app.use("/api/group", groupRouter);
 app.use("/api/folder", folderRouter);
