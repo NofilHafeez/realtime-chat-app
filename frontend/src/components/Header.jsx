@@ -11,7 +11,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   
-  const API_URL = "/api";
+  const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
+
 
   
   const handleLogout = async () => {

@@ -1,8 +1,7 @@
 import axios from 'axios';
 import socket from '../hooks/useSocket';
 
-const API_URL = "/api";
-
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
 
 
 export const fetchGroups = async () => {

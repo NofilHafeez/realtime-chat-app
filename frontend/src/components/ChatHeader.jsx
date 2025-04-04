@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Trash2, Users, Pen, Check, UserRoundMinus, LogOut, X  } from 'lucide-react';
 
 
-const API_URL = "/api";
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
+
 
 
 const ChatHeader = ({

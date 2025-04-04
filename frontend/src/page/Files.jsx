@@ -2,8 +2,8 @@ import React, { useState, useCallback, useEffect } from "react";
 import { Trash2, Plus, ArrowLeft } from "lucide-react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
 
-const API_URL = "/api";
 
 
 

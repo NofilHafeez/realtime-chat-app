@@ -2,7 +2,8 @@ import React, { useCallback, useState } from 'react';
 import { Paperclip, X } from 'lucide-react';
 import axios from 'axios';
 
-const API_URL = "/api";
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
+
 
 
 const ChatInput = ({ text, setText, sendMessage, selectedGroup, user, emitMessage }) => {

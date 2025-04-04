@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Chat from "./page/Chat";
 import RegisterPage from "./page/RegisterPage";
 import LoginPage from "./page/LoginPage";
