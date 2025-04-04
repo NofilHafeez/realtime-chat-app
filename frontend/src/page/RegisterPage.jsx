@@ -8,7 +8,7 @@ const RegisterPage = () => {
     const [credentials, setCredentials] = useState({name: "", email: "", password: "" });
     const [message, setMessage] = useState(null);
     const navigate = useNavigate();
-    const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
+    const API_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "https://confused-loraine-nofil-apps-6f553274.koyeb.app/";
 
 
 
