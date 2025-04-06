@@ -105,7 +105,7 @@ const RegisterPage = () => {
                     Already have an account?{" "}
                     <span
                         className="text-black font-semibold cursor-pointer hover:underline"
-                        onClick={() => navigate("/login-page")}
+                        onClick={() => navigate("/")}
                     >
                         Login here
                     </span>

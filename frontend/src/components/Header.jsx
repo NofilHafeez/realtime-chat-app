@@ -3,6 +3,10 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext.jsx";
 import { VscAccount } from "react-icons/vsc";
+import { ArrowRight } from "lucide-react";
+
+
+
 
 const profilePlaceholder = "https://via.placeholder.com/40"; // ✅ Placeholder Image
 
@@ -26,26 +30,33 @@ const Header = () => {
   };
 
   return (
-    <div>
-      <div className="bg-zinc-900 sm:fixed fixed top-0 left-0 text-white z-40 flex w-full justify-between items-center h-10 px-5 shadow-md">
-        <div className="ml-10 flex items-center  font-bold text-lg">
-          <img className="w-13 mt-1 h-13" src="../chat-icon1.png" alt="icon" />
-          <Link to="/">DoSimple</Link>
+    <div className="w-full">
+      <div className="fixed top-0 left-0 w-full bg-zinc-900 text-white z-50 flex justify-between items-center h-12 px-5 shadow-md">
+        {/* Logo & Name */}
+        <div className="ml-10 flex items-center font-bold text-lg">
+          <img className="w-10 h-10 mt-1 " src="../chat-icon1.png" alt="icon" />
+          <Link to="/chat-page">DoSimple</Link>
         </div>
-
-        {/* Icons */}
+  
+        {/* Right Side Icons */}
         <div className="flex gap-7 text-xl relative">
-          {/* Profile Icon with Hover Menu */}
           <div
             className="relative flex items-center"
-            onMouseEnter={() => setIsOpen(true)}
-            onMouseLeave={() => setIsOpen(false)}
+           
           >
-            <VscAccount className="hover:text-gray-500 cursor-pointer" />
+            <VscAccount onClick={() => setIsOpen(!isOpen)} className="hover:text-gray-500 cursor-pointer" />
             {isOpen && (
-              <div className="absolute right-2 top-2 mt-2 w-56 bg-zinc-800 shadow-lg rounded-lg p-4 z-50">
+              <div className="absolute right-0 top-8 w-56 bg-zinc-800 shadow-lg rounded-lg p-4 z-50">
                 <div className="flex flex-col items-center">
                   <p className="mt-2 text-md font-semibold">{user ? user.name : "Guest"}</p>
+                </div>
+                <div className="w-full flex flex-col gap-1 mt-5 text-sm">
+                  <Link className="text-blue-500 flex" to="/my-folders">
+                    <ArrowRight size={18} className="inline-block" /> My Folders
+                  </Link>
+                  <Link to="/chat-page" className="text-blue-500 flex">
+                    <ArrowRight size={18} className="inline-block" /> Chat Page
+                  </Link>
                 </div>
                 <div className="mt-4">
                   {!user ? (
@@ -72,6 +83,7 @@ const Header = () => {
       </div>
     </div>
   );
+  
 };
 
 export default Header;

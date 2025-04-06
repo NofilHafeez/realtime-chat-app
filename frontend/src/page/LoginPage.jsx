@@ -38,7 +38,7 @@ const LoginPage = () => {
     } finally {
       setLoading(false); // End loading state
     }
-  });
+  }); 
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#ededed] relative">

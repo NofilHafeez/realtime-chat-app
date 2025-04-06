@@ -74,8 +74,10 @@ const ChatInput = ({ text, setText, sendMessage, selectedGroup, user, emitMessag
     };
 
     return (
-        <div className="w-full fixed bottom-0 sm:relative">
-            {/* File Preview Box */}
+    <>
+        {/* Fixed Bottom Bar for Mobile */}
+        <div className="sm:relative sticky bottom-0 left-0 w-full bg-[#ededed] z-50">
+            {/* File Preview */}
             {file && (
                 <div className="p-2 bg-zinc-700 flex items-center gap-3">
                     {file.type.startsWith("image/") ? (
@@ -92,26 +94,22 @@ const ChatInput = ({ text, setText, sendMessage, selectedGroup, user, emitMessag
                     ) : (
                         <p className="text-gray-300">{fileName}</p>
                     )}
-                    {/* Remove File Button */}
                     <button onClick={removeFile} className="text-red-400 cursor-pointer">
-                        <X/>
+                        <X />
                     </button>
                 </div>
             )}
 
-            {/* Chat Input Form */}
-            <form onSubmit={handleSendMessage} className="w-full h-12 flex">
-                {/* Text Input */}
+            {/* Chat Input */}
+            <form onSubmit={handleSendMessage} className="flex w-full border-t border-zinc-300">
                 <input
                     id='TypeMsg'
-                    className="outline-none sm:rounded-bl-md w-full p-2 bg-zinc-400"
+                    className="flex-1 outline-none p-3 bg-zinc-100"
                     type="text"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="Type a message..."
                 />
-
-                {/* File Input */}
                 <input
                     type="file"
                     id="fileInput"
@@ -121,24 +119,28 @@ const ChatInput = ({ text, setText, sendMessage, selectedGroup, user, emitMessag
                 />
                 <label
                     htmlFor="fileInput"
-                    className="px-4 py-3 text-white bg-zinc-700 cursor-pointer hover:bg-zinc-600"
-                    aria-label="Attach file"
+                    className="px-4 flex items-center bg-zinc-700 text-white cursor-pointer hover:bg-zinc-600"
                 >
                     <Paperclip size={20} />
                 </label>
-
-                {/* Send Button */}
                 <button
                     type="submit"
                     disabled={(text.trim().length === 0 && !file) || isUploading}
-                    className={`w-20 sm:rounded-br-md text-white cursor-pointer transition-all 
-                        ${(text.trim().length > 0 || file) ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-400 cursor-not-allowed'}`}
+                    className={`sm:px-5 px-2 text-white transition-all 
+                        ${(text.trim().length > 0 || file)
+                            ? 'bg-blue-500 hover:bg-blue-600'
+                            : 'bg-gray-400 cursor-not-allowed'}`}
                 >
-                    {isUploading ? 'Uploading...' : 'Send'}
+                    {isUploading ? '...' : 'Send'}
                 </button>
             </form>
         </div>
-    );
+
+        {/* Spacer for bottom on mobile to avoid overlapping content */}
+        
+    </>
+);
+
 };
 
 export default ChatInput;

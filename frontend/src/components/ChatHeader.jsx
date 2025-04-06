@@ -103,7 +103,7 @@ const ChatHeader = ({
     }, [seeMember, selectedGroup, fetchMembers]);
 
     return (
-        <div className='w-full fixed sm:relative h-14 flex mt-10 sm:mt-0 sm:rounded-md items-center justify-between px-5 bg-zinc-800'>
+        <div className='w-full sticky mt-12 sm:top-0 top-0 sm:relative h-14 flex  sm:mt-0 sm:rounded-md items-center justify-between px-5 bg-zinc-800'>
             <div className='flex gap-3'>
                 {isEditingName ? (
                     <input

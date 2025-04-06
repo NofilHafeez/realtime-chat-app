@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Plus, Pen, X, Check, ArrowLeft } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
 
 
 const Folder = () => {
@@ -77,10 +76,6 @@ const Folder = () => {
 
   return (
     <div className="w-full min-h-screen px-5 py-20 sm:px-20 bg-zinc-900">
-        <Link to="/chat-page" className="text-blue-500">
-          <ArrowLeft size={17} className="inline-block mr-2 " />
-          Go to chat
-        </Link>
       {/* Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold text-white">My Folders</h1>

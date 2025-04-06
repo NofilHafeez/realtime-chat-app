@@ -31,10 +31,11 @@ module.exports.registerUser = async (req, res) => {
         // Set secure cookie with token
         res.cookie('token', token, {
             httpOnly: true,
-            secure: true,
-            sameSite: 'None', 
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 Days Expiry
-        });
+            secure: process.env.NODE_ENV !== "development", // true in production, false in development
+            sameSite: process.env.NODE_ENV === "development" ? "Lax" : "None", // Lax for local, None for cross-origin in prod
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+          });
+          
 
         // Send response
         res.status(201).json({ success: ["Registration Successful!"] });
@@ -78,11 +79,11 @@ module.exports.loginUser = async (req, res) => {
         // Set secure cookie with token
         res.cookie('token', token, {
             httpOnly: true,
-            secure: false,  // Secure in production
-            sameSite: "Lax", // Prevents CSRF issues
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 Days Expiry // Required for cross-origin cookies
-        });
-        
+            secure: process.env.NODE_ENV !== "development", // true in production, false in development
+            sameSite: process.env.NODE_ENV === "development" ? "Lax" : "None", // Lax for local, None for cross-origin in prod
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+          });
+                  
 
         res.status(201).json({ success: ["login Successful!"] });
 

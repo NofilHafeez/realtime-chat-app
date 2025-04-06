@@ -10,7 +10,8 @@ import GroupList from '../components/GroupList';
 import ChatHeader from '../components/ChatHeader';
 import ChatMessages from '../components/ChatMessages';
 import ChatInput from '../components/ChatInput';
-import { Link } from 'react-router-dom';
+ // ✅ Make sure Chevron icons are imported
+
 
 const Chat = () => {
     const [text, setText] = useState("");
@@ -42,14 +43,9 @@ const Chat = () => {
             console.log(`User ${userId} joined group ${groupId}`);
             
         };
-
-      
-        
              
         socket.on("message", handleMessage);
         socket.on("joinedGroup", handleJoinedGroup);
-
-
 
         return () => {
             socket.off("message", handleMessage);
@@ -125,22 +121,8 @@ const Chat = () => {
 
     return (
         <>
-        <div className='w-full flex justify-end px-28 relative top-10 sm:justify-end sm:px-20 sm:relative sm:top-18'>
-        <Link className='text-blue-500' to="/my-folders">
-            <ArrowRight size={17} className='inline-block mr-2' />
-            My Folders
-        </Link>
-        </div>
         <div className='bg-black sm:p-20 flex min-h-screen w-full'>
-            {/* Mobile toggle button for groups */}
-            <div className="sm:hidden fixed top-[-10px] z-50 left-0 p-4 flex justify-between items-center">
-                <button
-                    onClick={() => setShowGroups(!showGroups)}
-                    className="text-white cursor-pointer"
-                >
-                    {showGroups ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </div>
+           
 
             {/* Group list */}
             <GroupList {...groupListProps} />
@@ -159,7 +141,7 @@ const Chat = () => {
             </div>
         </div>
         </>
-    );
+    ); 
 };
 
 export default Chat;

@@ -15,7 +15,7 @@ const ChatMessages = ({ messages, user }) => {
     return (
         <div 
             ref={chatContainerRef} 
-            className='w-full mt-24 mb-15 sm:mt-0 sm:mb-0 scroll-smooth p-5 flex gap-2 flex-col overflow-y-auto h-full'
+            className='w-full  sm:mt-0 sm:mb-0 scroll-smooth p-5 flex gap-2 flex-col overflow-y-auto h-full'
         >
             {Array.isArray(messages) && messages.map((msg, index) => {
                 const isUserMessage = msg.senderId?._id === user._id;

@@ -30,7 +30,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://realtime-chat-app-frontend1.vercel.app", // ✅ Use a single origin
+    origin: [ "http://localhost:5173",
+              "https://realtime-chat-app-frontend1.vercel.app" 
+        ], // ✅ Use a single origin
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
